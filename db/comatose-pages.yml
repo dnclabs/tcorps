@@ -1,0 +1,51 @@
+--- 
+slug: index_banner
+filter_type: Textile
+body: |-
+  <h2>Help Us Make the Government More Transparent</h2>
+  
+  
+  Transparency Corps is the Sunlight Foundation's answer to the question, "How can I help?".
+  
+  There are many big problems that we can solve with technology, but we can't solve them all. For many of the projects that make government transparency a reality, human eyes and analysis are required. With Transparency Corps, we break those tasks down into short, small actions that make a BIG difference. Join the Corps, and let's get started!
+title: Banner
+children: 
+- slug: contact
+  filter_type: Textile
+  body: "Info about how to contact us. "
+  title: Contact
+  keywords: ""
+- slug: leaders
+  filter_type: Textile
+  body: Each time you complete a task, you get some points. The number of points depends on the task that you complete, and is shown next to each task. If you complete enough, you'll get listed in our leader board below and advance to new levels. If you're really good, you could end up in our Transparency Corps Hall of Fame!
+  title: Leaders
+  keywords: ""
+- slug: about
+  filter_type: Textile
+  body: |-
+    <p>
+      Transparency Corps is a project of the Sunlight Foundation. Our work is committed to helping citizens, bloggers and journalists be their own government watchdogs, by improving access to existing information, digitizing new information, and by creating new tools and Web sites to enable all of us to collaborate in fostering greater transparency.
+    </p>
+    
+    <p>
+      Transparency Corps allows anyone anywhere to have a positive impact on making our government more transparent by aggregating small actions that require human intelligence but not specialized political knowledge.
+    </p>
+    
+    <p>
+      TransparencyCorps is open source software, licensed under the MIT Open Source license. You can see the source code for it on the <a href="http://github.com/sunlightlabs/">SunlightLabs GitHub account</a>, under <a href="http://github.com/sunlightlabs/tcorps/tree/master">TCorps</a>.
+    </p>
+  title: About
+  keywords: ""
+- slug: signup
+  filter_type: Textile
+  body: |
+    <p>Join the cause, by signing up for Transparency Corps with one of the options below.</p>
+
+  title: Signup
+  keywords: ""
+- slug: footer
+  filter_type: Textile
+  body: Founded in 2006, the Sunlight Foundation supports, develops and deploys new Internet technologies to make information about Congress and the federal government more accessible to the American people. Through its projects and grant-making, Sunlight serves as a catalyst to create greater political transparency and to foster more openness and accountability in government. Visit SunlightFoundation.com to learn more.
+  title: Footer
+  keywords: ""
+keywords: ""

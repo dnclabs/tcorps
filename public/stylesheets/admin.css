@@ -34,7 +34,9 @@ li#logout{ border-left: #444 solid 1px; padding-left: 15px; margin-left: 15px;}
 
 div#header{ height: 177px; margin-bottom: 40px;}
 
-a#addTask{ margin-top: 32px; background: url(/images/btn_add.png) top left no-repeat; padding-left: 25px; font-size: 120%; display: block; color: #444;}
+a#addTask{ margin-top: 32px; background: url(/images/btn_add.png) top left no-repeat; padding-left: 25px; font-size: 120%; display: block; color: #444; float:left;}
+a#editCMS{ margin-left: 25px; margin-top: 32px; background: url(/images/page_edit.png) top left no-repeat; padding-left: 25px; font-size: 120%; display: block; color: #444; float:left;}
+
 
 h2{ font-size: 220%; color: #262020; font-family:Baskerville,Georgia,Times New Roman,Times,serif;}
 div#addTask_header h2{ float: left;}
@@ -44,12 +46,14 @@ div#statusSection{ float: right;}
 div#statusSection h3 { float: left; font-size: 150%; margin-right: 10px; font-family: Baskerville,Georgia,Times New Roman,Times,serif;}
 
 label{ width: 150px; display: block; float: left; font-weight: bold; }
+div#content label{ display:inline; float:none; }
+
 
 ul li{ margin-bottom: 10px;}
 label#startTitle{ float: none; }
 
 input, textarea{ border: 1px solid #dedada; -moz-border-radius: 3px; -webkit-border-radius: 3px; padding: 3px; background-color: #f5f4f4;}
-input{ height: 16px;}
+div#rtColumn input{ height: 16px;}
 
 ul#startDetails label { margin-left: 15px; width: 135px; color: #808285;}
 
@@ -98,4 +102,8 @@ div.flash.failure {
 }
 div.flash.success {
    border: 1px solid #fae19c; color: #da7c02;
+}
+
+div#content h1 {
+  width:200px; height:20px;
 }

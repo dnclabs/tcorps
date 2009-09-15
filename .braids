@@ -1,0 +1,22 @@
+--- 
+vendor/plugins/acts_as_tree: 
+  squashed: true
+  url: git://github.com/rails/acts_as_tree.git
+  type: git
+  revision: 20988cac158bcf7f7535a3c5dd193165797d719a
+  branch: master
+  remote: braid/vendor/plugins/acts-as-tree
+vendor/plugins/comatose: 
+  squashed: true
+  url: git://github.com/darthapo/comatose.git
+  type: git
+  revision: 65ef4859e1403cbf1baf353c15caba91485606c4
+  branch: master
+  remote: braid/vendor/plugins/comatose
+vendor/plugins/acts_as_list: 
+  squashed: true
+  url: git://github.com/rails/acts_as_list.git
+  type: git
+  revision: 8771a632dc26a7782800347993869c964133ea29
+  branch: master
+  remote: braid/vendor/plugins/acts-as-list
