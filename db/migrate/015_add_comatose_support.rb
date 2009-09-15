@@ -23,8 +23,8 @@ class AddComatoseSupport < ActiveRecord::Migration
       t.datetime  "created_on"
     end
     ComatosePage.create_versioned_table
-    puts "Creating the default 'Home Page'..."
-    ComatosePage.create( :title=>'Home Page', :body=>"h1. Welcome\n\nYour content goes here...", :author=>'System' )
+    puts "Import the default set of content:"
+    puts "rake comatose:data:import"
   end
 
   def self.down
