@@ -6,14 +6,7 @@
 </div>
 
 <p>
-  Have an idea for how to make Transparency Corps better?  Have a task related to government transparency that the Transparency Corps community could solve? Want to learn more about Transparency Corps or have a brilliant thought to share? 
-  <% if_javascript do %>
-    Send us a note here, or email <% javascript_tag do %>mailtoLink('sunlightfoundation', 'com', 'tcorps')<% end %> directly.
-  <% end %>
-  <% no_javascript do %>
-    Send us a note.
-  <% end %>
-  We love new people and ideas!
+  <%= render :comatose => 'contact' %>
 </p>
 
 <% form_tag '', :method => :post, :id => "contactForm" do %>
@@ -42,10 +35,3 @@
     <span>Submit</span>
   </button>
 <% end %>
-
-<p>
-  Are you a reporter? Probably don't want to fill out that form, huh. You should call our communications director:
-  <br/><br/>
-  Gabriela Schneider<br/>
-  (202) 742-1520 ext 236
-</p>

@@ -2,7 +2,7 @@
 <% content_for :hide_sidebar, true %>
 
 <p>
-  Each time you complete a task, you get some points. The number of points depends on the task that you complete, and is shown next to each task. If you complete enough, you'll get listed in our leader board below and advance to new levels.  If you're really good, you could end up in our Transparency Corps Hall of Fame!
+  <%= render :comatose => 'leaders' %>
 </p>
 
 <% @levels.each do |level| %>
