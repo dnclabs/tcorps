@@ -1,45 +1,4 @@
-BODY {
-  background: #DDD;
-  margin: 0px 100px;
-  padding: 0px;
-  font-family: "Lucida Grande", Tahoma, Verdana, Arial, Sans-Serif;
-  font-size: 12px;
-  min-width: 450px;
-}
-/* General Layout and Header Area */
-#page-container {
-  margin: 0px;
-  padding: 0px;
-}
-#header {
-  background: #0053C2;
-  padding: 5px;
-  border-bottom: 4px solid #00398B;
-}
-#header A {
-  text-decoration: none;
-  color: white;
-}
-#header A:hover {
-  color: white;
-}
-#header h1 {
-  margin: 0px;
-  padding: 0px;
-  padding-left: 10px;
-}
-#header h5 {
-  margin: 0px;
-  padding: 0px;
-  padding-left: 15px;
-  color: silver;
-}
-#header #flash {
-  float: right;
-  color: #4BA8FF;
-  font-weight: bold;
-  margin-right: 5px;
-}
+
 /* Content Area */
 #content {
   padding: 15px;

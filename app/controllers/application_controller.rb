@@ -8,6 +8,11 @@ class ApplicationController < ActionController::Base
 
   before_filter :load_sidebar
 
+  include Authentication
+  helper_method :logged_in?
+  helper_method :current_user
+  helper_method :current_session
+
   def load_sidebar
     @sidebar_campaigns = (logged_in? ? Campaign.active_for(current_user) : Campaign.active).all :limit => 5, :order => 'created_at DESC'
   end
@@ -37,36 +42,6 @@ class ApplicationController < ActionController::Base
     session[:goto] = nil
     goto
   end
-
-  def require_login
-    unless logged_in?
-      session[:goto] = params[:goto] || request.path
-      redirect_to register_path and return false 
-    end
-  end
-  
-  def require_manager
-    redirect_to root_path and return false unless current_user.manager? or current_user.admin?
-  end
-  
-  def require_admin
-    redirect_to root_path and return false unless current_user.admin?
-  end
-  
-  def logged_in?
-    !current_user.nil?
-  end
-  helper_method :logged_in?
-  
-  def current_user
-    @current_user ||= current_session.user if current_session
-  end
-  helper_method :current_user
-  
-  def current_session
-    @current_session ||= UserSession.find
-  end
-  helper_method :current_session
   
   # clickpass
   def clickpass_register_url(user)

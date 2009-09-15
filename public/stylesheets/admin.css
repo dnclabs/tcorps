@@ -35,6 +35,8 @@ li#logout{ border-left: #444 solid 1px; padding-left: 15px; margin-left: 15px;}
 div#header{ height: 177px; margin-bottom: 40px;}
 
 a#addTask{ margin-top: 32px; background: url(/images/btn_add.png) top left no-repeat; padding-left: 25px; font-size: 120%; display: block; color: #444;}
+a#editCMS{ margin-top: 32px; background: url(/images/btn_add.png) top left no-repeat; padding-left: 25px; font-size: 120%; display: block; color: #444;}
+
 
 h2{ font-size: 220%; color: #262020; font-family:Baskerville,Georgia,Times New Roman,Times,serif;}
 div#addTask_header h2{ float: left;}

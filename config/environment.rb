@@ -46,3 +46,13 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 end
+
+Comatose.configure do |config|
+  # Includes AuthenticationSystem in the ComatoseAdminController
+  config.admin_includes << "ComatoseAdminMixin"
+
+  # Returns the author name (login, in this case) for the current user
+  config.admin_get_author do
+    current_user.login
+  end
+end
