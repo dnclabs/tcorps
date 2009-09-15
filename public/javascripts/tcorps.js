@@ -1,19 +1,19 @@
 var GB_ANIMATION = true;
 
-$(document).ready(function(){    
-  $('div#signin_nav li a, div#signup_nav li a').click(function() {
-    var name = $(this).parent('li')[0].id.split('_')[1];
-    var type = $(this).parents('div.nav')[0].id.split('_')[0];
+jQuery(document).ready(function(){    
+  jQuery('div#signin_nav li a, div#signup_nav li a').click(function() {
+    var name = jQuery(this).parent('li')[0].id.split('_')[1];
+    var type = jQuery(this).parents('div.nav')[0].id.split('_')[0];
     return switch_nav(name, type);
   });
 });
 
 function switch_nav(name, type) {
-  var nav_item = $('li#nav_' + name);
-  var other_navs = $('div#' + type + '_nav li:not(#nav_' + name + ')');
+  var nav_item = jQuery('li#nav_' + name);
+  var other_navs = jQuery('div#' + type + '_nav li:not(#nav_' + name + ')');
   
-  $('div.' + type + '_option').hide();
-  $('div#' + type + '_' + name).show();
+  jQuery('div.' + type + '_option').hide();
+  jQuery('div#' + type + '_' + name).show();
   other_navs.removeClass('active');
   nav_item.addClass('active');
   
@@ -26,11 +26,11 @@ function setToNow(object, field) {
   var minutes = now.getMinutes();
   if (minutes < 10) minutes = "0" + minutes;
   
-  $("#" + base + "_1i").val(now.getYear() + 1900);
-  $("#" + base + "_2i").val(now.getMonth() + 1);
-  $("#" + base + "_3i").val(now.getDate());
-  $("#" + base + "_4i").val(now.getHours());
-  $("#" + base + "_5i").val(minutes);
+  jQuery("#" + base + "_1i").val(now.getYear() + 1900);
+  jQuery("#" + base + "_2i").val(now.getMonth() + 1);
+  jQuery("#" + base + "_3i").val(now.getDate());
+  jQuery("#" + base + "_4i").val(now.getHours());
+  jQuery("#" + base + "_5i").val(minutes);
 }
 
 // adapted from http://baxil.livejournal.com/266909.html

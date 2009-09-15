@@ -127,8 +127,8 @@ var ComatoseEditForm = {
     // Create the horizontal liquidity of the fields
     if(this.liquid_horiz) {
       xOffset = this.width_offset;
-      new Layout.LiquidHoriz((xOffset + 50), 'page_title');
-      new Layout.LiquidHoriz(xOffset, 'page_slug','page_keywords','page_parent','page_body');
+      //new Layout.LiquidHoriz((xOffset + 50), 'page_title');
+      //new Layout.LiquidHoriz(xOffset, 'page_slug','page_keywords','page_parent','page_body');
     }
   },
   // For use when updating an existing page...
