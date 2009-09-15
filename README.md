@@ -45,3 +45,5 @@ When a user completes a task on a campaign, that campaign should perform a POST 
 http://transparencycorps.org/tasks/complete
 
 The only parameter to send is "task_key", with the value being the task_key that was originally given as a parameter when the user first created their task.
+
+edit
