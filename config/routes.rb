@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.comatose_admin '/admin/cms'
+
+  #map.comatose_root ''
+
 
   map.resource :user_session
   map.resources :users
