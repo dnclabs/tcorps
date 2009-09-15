@@ -1,0 +1,8 @@
+--- 
+vendor/plugins/comatose: 
+  squashed: true
+  url: git://github.com/darthapo/comatose.git
+  type: git
+  revision: 65ef4859e1403cbf1baf353c15caba91485606c4
+  branch: master
+  remote: braid/vendor/plugins/comatose
