@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 15) do
+ActiveRecord::Schema.define(:version => 16) do
 
   create_table "campaigns", :force => true do |t|
     t.string   "name"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(:version => 15) do
     t.integer  "user_runs"
     t.integer  "creator_id"
     t.datetime "start_at"
+    t.string   "status",            :default => "draft"
+    t.string   "secret"
   end
 
   add_index "campaigns", ["creator_id"], :name => "index_campaigns_on_creator_id"

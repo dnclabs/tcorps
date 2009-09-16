@@ -1,7 +1,26 @@
 require 'test_helper'
 
 class CampaignTest < ActiveSupport::TestCase
-  
+
+  test 'must have a valid status' do
+    campaign = Factory(:campaign)
+    assert campaign.valid?
+    campaign.status = 'foo'
+    assert !campaign.valid?
+  end
+
+  test "creates a secert on create" do
+    campaign = Factory.build(:campaign)
+    campaign.expects(:create_secret).returns(true)
+    campaign.save
+  end
+
+  test "writes a random secret string" do
+    campaign = Factory.build(:campaign)
+    campaign.send(:create_secret)
+    assert_not_equal "foobar", campaign.secret
+  end
+
   test 'Campaign.percent_complete measures percent of all completed tasks' do
     campaign1 = Factory :campaign, :runs => 5
     campaign2 = Factory :campaign, :runs => 5

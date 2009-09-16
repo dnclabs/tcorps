@@ -1,20 +1,30 @@
+require 'openssl'
+
 class Campaign < ActiveRecord::Base
   belongs_to :creator, :class_name => 'User'
   has_many :tasks
-  
-  validates_presence_of :name, :points, :url, :runs, :start_at
+
+  DRAFT  = 'draft'
+  PUBLIC = 'public'
+  STATUSES = [DRAFT, PUBLIC]
+  validates_inclusion_of :status, :in => STATUSES
+
+  validates_presence_of :name, :points, :url, :runs, :start_at, :status, :secret
   validates_numericality_of :runs, :greater_than => 0
-  
+
+  DIGEST = OpenSSL::Digest::Digest.new('sha1')
+  before_create :create_secret
+
   named_scope :active, 
     :select => "campaigns.*", 
-    :conditions => ["start_at < ? and (select count(*) from tasks where tasks.campaign_id = campaigns.id and tasks.completed_at IS NOT NULL) < campaigns.runs", Time.now]
+    :conditions => ["start_at < ? AND status = 'public' AND (select count(*) from tasks where tasks.campaign_id = campaigns.id and tasks.completed_at IS NOT NULL) < campaigns.runs", Time.now]
   
   named_scope :active_for, lambda {|user|
     # ActiveRecord does not offer ?-style interpolation for the select parameter,
     # and the id attribute is not subject to user manipulation, so this is safe
     {
       :select => "campaigns.*", 
-      :conditions => ["start_at < ? and (select count(*) from tasks where tasks.campaign_id = campaigns.id and tasks.completed_at IS NOT NULL) < campaigns.runs and (campaigns.user_runs IS NULL OR campaigns.user_runs = 0 OR (select count(*) from tasks where tasks.campaign_id = campaigns.id and tasks.completed_at IS NOT NULL and tasks.user_id = ?) < campaigns.user_runs)", Time.now, user.id]
+      :conditions => ["start_at < ? AND status = 'public' AND (select count(*) from tasks where tasks.campaign_id = campaigns.id and tasks.completed_at IS NOT NULL) < campaigns.runs and (campaigns.user_runs IS NULL OR campaigns.user_runs = 0 OR (select count(*) from tasks where tasks.campaign_id = campaigns.id and tasks.completed_at IS NOT NULL and tasks.user_id = ?) < campaigns.user_runs)", Time.now, user.id]
     }
   }
   
@@ -37,5 +47,10 @@ class Campaign < ActiveRecord::Base
     else
       tasks.completed.count == runs
     end
+  end
+
+  private
+  def create_secret
+    write_attribute(:secret, (0...10).map{65.+(rand(25)).chr}.join)
   end
 end
