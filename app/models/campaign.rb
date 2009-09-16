@@ -51,6 +51,6 @@ class Campaign < ActiveRecord::Base
 
   private
   def create_secret
-    write_attribute(:secret, (0...10).map{65.+(rand(25)).chr}.join)
+    write_attribute(:secret, ActiveSupport::SecureRandom.hex(16))
   end
 end
