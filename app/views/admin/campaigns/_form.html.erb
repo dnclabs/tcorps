@@ -1,8 +1,21 @@
 <ul>
+  <% if @campaign.secret %>
+    <li>
+      <label>Shared Secret</label>
+      <%= @campaign.secret %><br/>
+    </li>
+  <% end %>
+
   <li>
     <%= f.label :name %>
     <%= f.text_field :name, :class => 'text' %>
   </li>
+
+  <li>
+    <%= f.label :status %>
+    <%= f.select :status, Campaign::STATUSES %>
+  </li>
+
   <li>
     <%= f.label :url %>
     <%= f.text_field :url, :class => 'text' %>

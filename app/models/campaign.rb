@@ -13,7 +13,7 @@ class Campaign < ActiveRecord::Base
   validates_numericality_of :runs, :greater_than => 0
 
   DIGEST = OpenSSL::Digest::Digest.new('sha1')
-  before_create :create_secret
+  before_validation_on_create :create_secret
 
   named_scope :active, 
     :select => "campaigns.*", 
