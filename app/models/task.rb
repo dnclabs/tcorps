@@ -1,4 +1,7 @@
 class Task < ActiveRecord::Base
+  require 'openssl'
+  DIGEST = OpenSSL::Digest::Digest.new('sha1')
+
   belongs_to :user
   belongs_to :campaign
   
@@ -9,6 +12,10 @@ class Task < ActiveRecord::Base
   named_scope :for_user, lambda {|user|
     {:conditions => {:user_id => user.id}}
   }
+
+  def valid_secret?(secret)
+    secret == OpenSSL::HMAC.hexdigest(DIGEST, campaign.secret, "#{user.login}-#{key}")
+  end
   
   def before_validation_on_create
     self.points = campaign.points

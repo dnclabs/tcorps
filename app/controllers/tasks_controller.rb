@@ -1,5 +1,4 @@
-class TasksController < ApplicationController
-  
+class TasksController < ApplicationController  
   before_filter :require_login, :except => :complete
   before_filter :load_task, :only => :show
   before_filter :load_campaign, :only => :create
@@ -9,6 +8,7 @@ class TasksController < ApplicationController
   def complete
     head :method_not_allowed and return false unless request.post?
     head :not_found and return false unless @task = Task.find_by_key(params[:task_key])
+    head :not_found and return false unless @task.valid_secret?(params[:secret])
     
     now = Time.now
     elapsed = Time.now - @task.created_at
