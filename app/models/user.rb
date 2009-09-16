@@ -64,7 +64,7 @@ class User < ActiveRecord::Base
   end
   
   Paperclip.interpolates :gender do |attachment, style|
-    [:female, :male][rand 2]
+    [:female, :male][rand(2)]
   end
   
 end
