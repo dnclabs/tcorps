@@ -1,5 +1,5 @@
 require 'test_helper'
-
+require 'openssl'
 class TaskTest < ActiveSupport::TestCase
   
   test 'cannot be created for a completed campaign' do
@@ -27,6 +27,18 @@ class TaskTest < ActiveSupport::TestCase
     # sanity check
     task4 = Factory.build :completed_task, :campaign => campaign
     assert task4.save
+  end
+
+  test "validates a secret key" do
+    task = Factory(:task)
+    secret = OpenSSL::HMAC.hexdigest(OpenSSL::Digest::Digest.new('sha1'), task.campaign.secret, "#{task.user.login}-#{task.key}")
+    assert task.valid_secret?(secret)
+  end
+
+  test "does not validate an invalid secret key" do
+    task = Factory(:task)
+    secret = 'foo'
+    assert !task.valid_secret?(secret)  
   end
   
   test 'inherits points from campaign on creation' do
